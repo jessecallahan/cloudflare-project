@@ -8,50 +8,49 @@
 
 <body>
   <div class="container">
-    <h1>Recipe Ideas</h1>
-    <div class="row">
-      <div class="col-md-6">
-        <label for="category">Choose a Category:</label>
-        <select class="form-control" id="category">
-          <option value="Beef">Beef</option>
-          <option value="Chicken">Chicken</option>
-          <option value="Dessert">Dessert</option>
-          <option value="Miscellaneous">Miscellaneous</option>
-          <option value="Pasta">Pasta</option>
-          <option value="Pork">Pork</option>
-          <option value="Seafood">Seafood</option>
-          <option value="Side">Side</option>
-          <option value="Starter">Starter</option>
-          <option value="Vegan">Vegan</option>
-          <option value="Vegetarian">Vegetarian</option>
-        </select>
-        <button class="btn btn-success" id="categoryName">Get Recipe Ideas</button>
-        <select class="custom-select" size="20" id="showCategory">
-        </select>
-        <button class="btn btn-success" id="recipeName">Get Recipes</button>
-      </div>
-      <div class="col-md-6">
-        <h2>Recipe:<div class="text-warning" id="name">
-          </div>
-        </h2>
-        <div class="row">
-          <div class="col-sm">
-            <div id="ingredientsTitle"></div>
-            <div id="ingredients"></div>
-          </div>
-          <div class="col-sm">
-            <div id="measurementsTitle"></div>
-            <div id="measurements"></div>
-          </div>
-        </div>
-        <br>
-        <div id="instructionsTitle"></div>
-        <div id="instructions"></div>
-      </div>
-
+    <div id="Description">
+      <h1>Description</h1>
+      <p1>Ipsum
+        Bacon ipsum dolor amet venison hamburger boudin spare ribs cow porchetta doner shoulder drumstick andouille
+        ground round. Cupim kevin chicken beef ribs shank shoulder ham tail pork boudin short loin pancetta. Spare ribs
+        picanha boudin, pancetta ball tip tongue turducken ham chicken ground round beef pig. Hamburger ribeye pork chop
+        tongue cow tenderloin pork prosciutto pastrami.
+      </p1>
     </div>
 
+    <div id="Test">
+      <h1>Test</h1>
+      <button id="ABButton">A/B Button</button>
+    </div>
+
+    <div id="Stats">
+
+      <h1>Analytics</h1>
+
+      <div id="Variant1">Variant 1 = <div id="result1"></div>
+      </div>
+      <div id="Variant2">Variant 2 = <div id="result2"></div>
+      </div>
+      <div>total clicks:<div id="total"></div>
+      </div>
+      <div class="row">
+        <div class="col-6">
+          variant 1 score
+          <div id="score1"></div>
+          variant 1 percentage
+          <div id="percentage1"></div>
+        </div>
+
+        <div class="col-6">
+          variant 2 score
+          <div id="score2"></div>
+          variant 2 percentage
+          <div id="percentage2"></div>
+        </div>
+      </div>
+    </div>
   </div>
+
 <script type="text/javascript" src="bundle.js"></script></body>
 
 </html>

@@ -2,68 +2,55 @@ import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
-import { RecipeGrabber } from './recipelist-service.js';
 import { Recipe } from './recipe-service.js';
 
 
 
 $(document).ready(function () {
-  $('#categoryName').click(function () {
-    const catName = $('#category').val();
+  var scoreboard = { score1: 0, score2: 0, total: 0 };
 
-    (async () => {
-      let NewRecipeGrabber = new RecipeGrabber();
-      const catNameResponse = await NewRecipeGrabber.getRecipeListByCategory(catName);
-      getElements(catNameResponse);
-    })();
 
-    function getElements(catNameResponse) {
-      if (catNameResponse) {
-        $("#showCategory").html('');
-        for (var i = 0; i < catNameResponse.meals.length; i++) {
-          $("#showCategory").append("<option" + " value=" + `"${catNameResponse.meals[i].strMeal}"` + ">" + catNameResponse.meals[i].strMeal + "</option>");
-          $("#showCategory").show();
-          $("#recipeName").show();
-        }
-      } else {
-        $("#showRestaurant1").append("Hmmm...didnt work. Try another category.");
-      }
-    }
-  });
-
-  $('#recipeName').click(function () {
-    const recipe = $('#showCategory').val();
+  $('#ABButton').click(function () {
 
     (async () => {
       let newRecipe = new Recipe();
-      const recipeResponse = await newRecipe.getRecipe(recipe);
+      const recipeResponse = await newRecipe.getRecipe();
       getElements(recipeResponse);
     })();
-  });
 
-  function getElements(recipeResponse) {
-    if (recipeResponse) {
-      const values = Object.values(recipeResponse.meals[0]);
-      $("#ingredients").html('');
-      $("#measurements").html('');
-      for (var i = 0; i < values.length; i++) {
-        if (i >= 9 && i <= 28) {
-          $("#ingredientsTitle").text("Ingredients:");
-          $("#ingredients").append("<ul>" + values[i] + "</ul");
-          $("#ingredients").show();
-        }
-        if (i >= 29 && i <= 48) {
-          $("#measurementsTitle").text("Measurements:");
-          $("#measurements").append("<ul>" + values[i] + "</ul");
-          $("#measurements").show();
-        }
+
+    function getElements(recipeResponse) {
+      const website1 = recipeResponse.variants[0];
+      const website2 = recipeResponse.variants[1];
+
+      var ABTest = Math.random() >= 0.5;
+      if (ABTest) {
+        scoreboard.total++;
+        scoreboard.score1++;
+        $("#result1").show();
+        $("#result1").html(website1);
+        $("#result2").hide();
+
       }
-      $("#name").text(recipeResponse.meals[0].strMeal);
-      $("#instructionsTitle").text("Instructions:");
-      $("#instructions").text(recipeResponse.meals[0].strInstructions);
+      else {
+        scoreboard.total++;
+        scoreboard.score2++;
+        $("#result2").show();
+        $("#result2").html(website2);
+        $("#result1").hide();
+      }
+      $("#score1").text(scoreboard.score1);
+      $("#score2").text(scoreboard.score2);
+      var percentage1 = scoreboard.score1 * 100 / scoreboard.total;
+      $("#percentage1").text(Math.ceil(percentage1) + "%"); // 95.0
+      var percentage2 = scoreboard.score2 * 100 / scoreboard.total;
+      $("#percentage2").text(Math.ceil(percentage2) + "%"); // 95.0
+      $("#total").text(scoreboard.total);
 
-    } else {
-      $("#instructions").append("Hmmm...didnt work. Try another recipe.");
+
+
     }
-  }
+
+
+  });
 });
