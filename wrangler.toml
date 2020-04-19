@@ -1,0 +1,5 @@
+name = "cloud"
+type = "webpack"
+account_id = "ab910150f6cf223cc24996302c78c525"
+workers_dev = true
+webpack_config = "webpack.config.js"

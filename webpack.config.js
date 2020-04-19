@@ -4,17 +4,19 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 
+
+
+
+
 module.exports = {
-  entry: './src/recipeinterface.js',
+  "target": "webworker",
+  entry: "./src/recipeinterface.js",
   output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist')
-  },
-  devtool: 'eval-source-map',
-  devServer: {
-    contentBase: './dist',
+    path: path.resolve(__dirname, "build"),
+    filename: "bundle.js"
   },
   plugins: [
+
     new UglifyJsPlugin({ sourceMap: true }),
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
@@ -36,8 +38,9 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: "eslint-loader"
+        // loader: "eslint-loader"
       }
     ]
   }
+
 };
