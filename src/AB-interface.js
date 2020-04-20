@@ -2,9 +2,7 @@ import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
-import { Recipe } from './recipe-service.js';
-
-
+import { Variants } from './variant-service.js'
 
 $(document).ready(function () {
   var scoreboard = { score1: 0, score2: 0, total: 0 };
@@ -13,15 +11,15 @@ $(document).ready(function () {
   $('#ABButton').click(function () {
 
     (async () => {
-      let newRecipe = new Recipe();
-      const recipeResponse = await newRecipe.getRecipe();
-      getElements(recipeResponse);
+      let newResponse = new Variants();
+      const Response = await newResponse.getVariants();
+      getElements(Response);
     })();
 
 
-    function getElements(recipeResponse) {
-      const website1 = recipeResponse.variants[0];
-      const website2 = recipeResponse.variants[1];
+    function getElements(Response) {
+      const website1 = Response.variants[0];
+      const website2 = Response.variants[1];
 
       var ABTest = Math.random() >= 0.5;
       if (ABTest) {
@@ -42,9 +40,9 @@ $(document).ready(function () {
       $("#score1").text(scoreboard.score1);
       $("#score2").text(scoreboard.score2);
       var percentage1 = scoreboard.score1 * 100 / scoreboard.total;
-      $("#percentage1").text(Math.ceil(percentage1) + "%"); // 95.0
+      $("#percentage1").text(Math.ceil(percentage1) + "%");
       var percentage2 = scoreboard.score2 * 100 / scoreboard.total;
-      $("#percentage2").text(Math.ceil(percentage2) + "%"); // 95.0
+      $("#percentage2").text(Math.ceil(percentage2) + "%");
       $("#total").text(scoreboard.total);
 
 

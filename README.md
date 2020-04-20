@@ -1,26 +1,22 @@
-# Recipe Tracker
+# Cloudflare AB Test
 
-Created 03.28.20</br>
+Created 04.20.20</br>
 By _**Jesse Callahan**_</br>
 Contact: _**Jessetylercallahan@gmail.com**_</br>
 
 ## Description
 
-Returns recipes based on catagory
+ This application takes two url links nested in an api and parses the values randomly at the click of a button.
 
 ## Setup/Installation Requirements
-Click [link](https://jessecallahan.github.io/recipe-tracker/) to try it out or
 
-1) git clone [repository](https://github.com/jessecallahan/recipe-tracker.git)
-2) go to directory in terminal and 'npm install'
-3) then 'npm run build'
-4) 'npm run start' to get recipes!
-
+1) go to directory in terminal and 'npm install'
+2) then 'npm run build'
+3) 'npm run start' to get recipes!
 
 ## Specs
 
-1) Searchs recipes by category name
-2) Gives you recipes in each category
+Button makes api call, function using Math.Random() picks one of values
 
 ## Technologies Used
 * Npm, webpacks, js.node, api, JS ES6 ...

@@ -9,11 +9,15 @@ const Dotenv = require('dotenv-webpack');
 
 
 module.exports = {
-  "target": "webworker",
-  entry: "./src/recipeinterface.js",
+  target: "webworker",
+  entry: "./src/AB-interface.js",
   output: {
-    path: path.resolve(__dirname, "build"),
-    filename: "bundle.js"
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist')
+  },
+  devtool: 'eval-source-map',
+  devServer: {
+    contentBase: './dist',
   },
   plugins: [
 

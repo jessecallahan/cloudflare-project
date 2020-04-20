@@ -1,5 +1,5 @@
-export class Recipe {
-  async getRecipe() {
+export class Variants {
+  async getVariants() {
     try {
       let response = await fetch(`https://cfw-takehome.developers.workers.dev/api/variants`);
       let jsonifiedResponse;
