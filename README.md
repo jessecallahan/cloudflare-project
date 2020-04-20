@@ -1,4 +1,4 @@
-# Cloudflare AB Test
+# Cloudflare A/B Test
 
 Created 04.20.20</br>
 By _**Jesse Callahan**_</br>
@@ -14,6 +14,7 @@ Contact: _**Jessetylercallahan@gmail.com**_</br>
 2) then 'npm run build'
 3) 'npm run start' to get recipes!
 
+[Here's](https://jessecallahan.github.io/cloudflare-project) the github pages site! (You might need addon/plugin that allows you to enable CORS)
 ## Specs
 
 Button makes api call, function using Math.Random() picks one of values
